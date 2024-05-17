@@ -1,5 +1,5 @@
 const express = require("express");
-
+const cors = require("cors");
 const Pizza = require('./models/pizzaModel')
 
 const app = express();
@@ -7,7 +7,12 @@ const app = express();
 const db = require('./db.js')
 
 app.use(express.json());
+app.use(cors(
+    {
+        origin: "*",
+    }
 
+));
 const pizzasRoute = require('./routes/pizzaRoute')
 const userRoute = require('./routes/userRoute')
 const ordersRoute = require('./routes/ordersRoute')
